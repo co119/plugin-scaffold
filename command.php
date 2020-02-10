@@ -102,7 +102,7 @@ class ScaffoldCustomPluginCommand {
 	 * @param array $args       The CLI arguments.
 	 * @param array $assoc_args The CLI associative args array.
 	 */
-	public function custom_plugin( $args, $assoc_args ) {
+	public function co119_plugin( $args, $assoc_args ) {
 
 		WP_CLI::run_command( array( 'scaffold', 'plugin', $args[0] ), $assoc_args );
 
@@ -119,9 +119,13 @@ class ScaffoldCustomPluginCommand {
 
 		$this->create_directories( array(
 			"{$plugin_dir}/assets",
-			"{$plugin_dir}/assets/js",
-			"{$plugin_dir}/assets/css",
-			"{$plugin_dir}/assets/images",
+			"{$plugin_dir}/assets/src",
+			"{$plugin_dir}/assets/src/js",
+			"{$plugin_dir}/assets/src/sass",
+			"{$plugin_dir}/assets/dist",
+			"{$plugin_dir}/assets/dist/js",
+			"{$plugin_dir}/assets/dist/css",
+			"{$plugin_dir}/assets/dist/images",
 			"{$plugin_dir}/inc/",
 			"{$plugin_dir}/inc/classes",
 			"{$plugin_dir}/inc/functions",
@@ -146,4 +150,4 @@ class ScaffoldCustomPluginCommand {
 
 $custom_plugin_cli = new ScaffoldCustomPluginCommand();
 
-WP_CLI::add_command( 'scaffold custom_plugin', array( $custom_plugin_cli, 'custom_plugin' ) );
+WP_CLI::add_command( 'scaffold co119-plugin', array( $custom_plugin_cli, 'co119_plugin' ) );
